@@ -16,19 +16,24 @@ pipeline {
         stage('test') {
             steps {
                 echo 'Running Unit Test for worker Java App'
-                sleep 9
+                dir('worker'){
+                  sh 'mvn clean test'
+                }
             }
         }
         stage('package') {
             steps {
                 echo 'Packaging worker Java App'
-                sleep 5
+                dir('worker'){
+                  sh 'mvn package -Dskiptests'
+                }
             }
         }
         
     }
     post{
             always{
+                archiveArtifacts aratifacts: '"**/target/*.jar', fingerprint: true
                 echo 'Build pipeline is completed...'
             }
         }
