@@ -54,7 +54,7 @@ pipeline {
       }
       when {
         branch 'master'
-        changeset '**/worker/**'
+     //   changeset '**/worker/**'
       }
       steps {
         echo 'Packaging worker app'
@@ -69,7 +69,7 @@ pipeline {
     stage('worker-docker-package') {
       agent any
       when {
-        changeset '**/worker/**'
+       // changeset '**/worker/**'
         branch 'master'
       }
       steps {
@@ -128,7 +128,7 @@ pipeline {
     stage('result-docker-package') {
       agent any
       when {
-        changeset '**/result/**'
+       // changeset '**/result/**'
         branch 'master'
       }
       steps {
