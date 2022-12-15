@@ -78,7 +78,7 @@ pipeline {
           docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
             def workerImage = docker.build("nmendozac/worker:v${env.BUILD_ID}", './worker')
             workerImage.push()
-            workerImage.push("${env.BRANCH_NAME}")
+            //workerImage.push("${env.BRANCH_NAME}")
             workerImage.push('latest')
           }
         }
@@ -137,7 +137,7 @@ pipeline {
           docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
             def resultImage = docker.build("nmendozac/result:v${env.BUILD_ID}", './result')
             resultImage.push()
-            resultImage.push("${env.BRANCH_NAME}")
+           // resultImage.push("${env.BRANCH_NAME}")
             resultImage.push('latest')
           }
         }
@@ -209,7 +209,7 @@ pipeline {
             // ./vote is the path to the Dockerfile that Jenkins will find from the Github repo
             def voteImage = docker.build("nmendozac/vote:v${env.BUILD_ID}", "./vote")
             voteImage.push()
-            voteImage.push("${env.BRANCH_NAME}")
+          //  voteImage.push("${env.BRANCH_NAME}")
             voteImage.push("latest")
           }
         }
