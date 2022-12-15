@@ -9,7 +9,7 @@ services:
   vote:
     image: nmendozac/vote:latest
     ports:
-      - 6000:80
+      - 8000:80
     depends_on:
       - redis
     networks:
@@ -31,7 +31,7 @@ services:
   result:
     image: nmendozac/result:latest
     ports:
-      - 6001:4000
+      - 8001:4000
     depends_on:
       - db
     networks:
