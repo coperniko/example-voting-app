@@ -272,9 +272,7 @@ pipeline {
         build job: 'deployment', parameters: [string(name: 'DOCKERTAG', value: GIT_COMMIT)]
       }    
    }
-    
-
- 
+     
   }
   
   post {
