@@ -241,6 +241,7 @@ pipeline {
     stage("Quality Gate") {
         agent any
         steps {
+            echo 'Quality Gate'
             timeout(time: 3, unit: 'MINUTES') {
                 // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
                 // true = set pipeline to UNSTABLE, false = don't
